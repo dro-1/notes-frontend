@@ -1,0 +1,71 @@
+form {
+    margin-top: 4rem;
+
+    svg.loading {
+        animation: rotate 1.5s linear infinite;
+        font-size: 5rem;
+        display: block;
+        margin: 6rem auto 0;
+        color: #fff;
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    div.form-group {
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        width: 90%;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        transition: all 1s;
+        position: relative;
+        z-index: 1;
+
+        &:nth-child(2) {
+            position: static;
+            transform: translateY(-40px);
+
+            &.active {
+                transform: translateY(0);
+            }
+        }
+
+        &:nth-child(3) {
+            position: static;
+            transform: translateY(-80px);
+
+            &.active {
+                transform: translateY(0);
+            }
+        }
+
+        input {
+            background-color: #fff;
+            border: none;
+            font-size: 1.8rem;
+            height: 30px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        svg {
+            font-size: 3rem;
+            position: relative;
+            top: 50%;
+        }
+    }
+
+
+}

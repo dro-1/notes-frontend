@@ -1,0 +1,22 @@
+section.notes {
+    overflow-y: scroll;
+    columns: 2 200px;
+    column-gap: 1rem;
+
+    div {
+        width: 100%;
+        margin: 0 1rem 1rem 0;
+        display: inline-block;
+        background-color: deeppink;
+        color: #fff;
+        height: 100%;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        em {
+            font-size: 1.6rem;
+        }
+    }
+}
