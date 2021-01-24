@@ -4,6 +4,7 @@ import { BiSearch } from 'react-icons/bi'
 import { AiOutlinePlus } from 'react-icons/ai'
 
 import Notes from '../notes/notes.component'
+import { Link } from 'react-router-dom'
 
 const HomePage: React.FC = () => {
     const [search, setSearch] = useState('')
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
             <main>
                 <Notes />
             </main>
-            <button><AiOutlinePlus /></button>
+            <Link to='/edit'><AiOutlinePlus /></Link>
         </section>
     )
 }

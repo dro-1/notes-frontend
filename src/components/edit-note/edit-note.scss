@@ -1,0 +1,76 @@
+section.edit {
+    padding: 2rem;
+    background-color: rgb(34, 34, 34);
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+            font-size: 4rem;
+            color: #fff;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+    }
+
+    form {
+        margin-top: 2rem;
+
+        input,
+        textarea {
+            &::placeholder {
+                color: rgba($color: #fff, $alpha: 0.5)
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            width: 100%;
+            padding: 0.5rem 0;
+            border-radius: .5rem;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+        }
+
+        input {
+            margin-bottom: 2rem;
+            font-size: 3rem;
+        }
+
+        textarea {
+            font-size: 1.6rem;
+            resize: none;
+            height: 60vh;
+        }
+
+    }
+
+    &>a {
+        background-color: rgb(49, 177, 45);
+        border-radius: 50%;
+        padding: 1rem;
+        border: none;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 1rem;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+
+
+        svg {
+            font-size: 4rem;
+            color: #fff;
+        }
+    }
+}

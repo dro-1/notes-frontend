@@ -1,0 +1,75 @@
+section.view {
+    background-color: rgb(73, 73, 73);
+    min-height: 100vh;
+    color: #fff;
+    padding: 2rem;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+            font-size: 3.5rem;
+            color: #fff;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-top: 2rem;
+        font-family: Manrope, sans-serif;
+    }
+
+    em {
+        font-style: normal;
+        font-size: 1.2rem;
+        display: block;
+        margin: 1rem 0 3rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+
+    div.buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 1rem;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+
+        button,
+        a {
+            background-color: transparent;
+            border-radius: 50%;
+            padding: 1rem;
+            border: none;
+            color: #fff;
+
+            svg {
+                font-size: 3.5rem;
+            }
+
+            &:nth-child(2) {
+                background-color: rgb(197, 188, 66);
+
+                svg {
+                    font-size: 4rem;
+                }
+            }
+        }
+    }
+
+
+}
