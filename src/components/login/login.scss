@@ -11,18 +11,20 @@ main.login {
     margin-bottom: 4rem;
   }
 
-  & > img {
+  &>img {
     display: block;
     width: 70%;
     margin: 0 auto 4rem;
   }
-  em {
+
+  &>em {
     display: block;
     margin: 2rem auto;
     text-align: center;
     font-style: normal;
     color: #fff;
     font-size: 1.6rem;
+
     a {
       color: #fff;
     }

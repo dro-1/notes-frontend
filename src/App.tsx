@@ -13,7 +13,7 @@ function App() {
     <Route path='/login' component={LoginPage} />
     <Route path='/home' component={HomePage} />
     <Route path='/view' render={(props: any) => <ViewNote {...props.location.state.note} />} />
-    <Route path='/edit' render={(props: any) => <EditNote {...props.location.state.note} />} />
+    <Route path='/edit' render={(props: any) => props.location.state && props.location.state.note ? <EditNote type='edit' {...props.location.state.note} /> : <EditNote type='add' />} />
   </Switch>
 }
 
