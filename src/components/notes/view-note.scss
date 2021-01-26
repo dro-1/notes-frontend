@@ -49,6 +49,29 @@ section.view {
         left: 50%;
         transform: translateX(-50%);
 
+        svg.loading.view {
+            animation: rotate 1.5s linear infinite;
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+        }
+
+        svg.success {
+            color: rgb(42, 192, 42);
+        }
+
+        svg.error {
+            color: red;
+        }
+
         button,
         a {
             background-color: transparent;

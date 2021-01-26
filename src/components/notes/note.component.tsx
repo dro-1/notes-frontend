@@ -2,13 +2,14 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 export interface INote {
+    id: string
     title: string
     content: string
     updatedAt: Date
     type: 'none' | 'personal' | 'work' | 'todo'
 }
 
-const Note: React.FC<INote> = ({ title, content, updatedAt, type }) => {
+const Note: React.FC<INote> = ({ title, content, updatedAt, type, id }) => {
     const { push } = useHistory()
     return (
         <div className={`${type}`} onClick={() => push('/view', {
@@ -16,7 +17,8 @@ const Note: React.FC<INote> = ({ title, content, updatedAt, type }) => {
                 title,
                 content,
                 updatedAt,
-                type
+                type,
+                id
             }
         })}>
             <h2>{title}</h2>

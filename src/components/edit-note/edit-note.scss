@@ -18,6 +18,48 @@ section.edit {
         }
     }
 
+    h2 {
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    div.buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        button {
+            border: none;
+            border-radius: 0.5rem;
+            padding: .5rem;
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.none {
+                background-color: rgb(148, 147, 147);
+            }
+
+            &.personal {
+                background-color: rgb(62, 161, 16);
+            }
+
+            &.work {
+                background-color: rgb(22, 126, 167);
+            }
+
+            &.todo {
+                background-color: rgb(211, 28, 28);
+            }
+        }
+    }
+
     header {
         display: flex;
         justify-content: space-between;
@@ -57,7 +99,7 @@ section.edit {
         }
 
         input {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             font-size: 3rem;
         }
 
