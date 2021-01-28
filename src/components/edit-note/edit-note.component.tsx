@@ -4,7 +4,7 @@ import { IoMdArrowRoundBack, IoMdCheckmark } from 'react-icons/io'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 import './edit-note.scss'
-import axios from 'axios';
+import axios from './../../api/api';
 
 type NoteTypes = 'none' | 'personal' | 'work' | 'todo'
 interface IEditProps {
@@ -30,10 +30,6 @@ const EditNote: React.FC<IEditProps> = (props) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    useEffect(() => {
-        console.log(props)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
     const submitForm = async () => {
         setLoading(true)
         if (props.componentType === 'add') {
@@ -52,11 +48,8 @@ const EditNote: React.FC<IEditProps> = (props) => {
                 }
             }
             try {
-                const token = localStorage.getItem('token')
-                const response = await axios.post('http://localhost:8080/graphql', body, {
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    }
+                const response = await axios.post('/', body, {
+                    withCredentials: true
                 })
                 console.log(response)
                 if (response.data.data.addNote.message === "Note created successfully") {
@@ -89,11 +82,8 @@ const EditNote: React.FC<IEditProps> = (props) => {
                 }
             }
             try {
-                const token = localStorage.getItem('token')
-                const response = await axios.post('http://localhost:8080/graphql', body, {
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    }
+                const response = await axios.post('/', body, {
+                    withCredentials: true
                 })
                 if (response.data.data.editNote.message === "Note updated successfully") {
                     setLoading(false)

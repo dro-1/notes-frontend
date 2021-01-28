@@ -5,7 +5,7 @@ import { IoIosRefresh } from 'react-icons/io'
 import './notes.scss'
 import Note from './note.component'
 import { UserContext } from './../../context/user.provider'
-import axios from 'axios';
+import axios from './../../api/api';
 
 const Notes: React.FC = () => {
     const [loading, setLoading] = useState(false)
@@ -29,18 +29,15 @@ const Notes: React.FC = () => {
                   status
                 }
               }
-            `
+            `,
         }
         try {
-            const token = localStorage.getItem('token')
-            const response = await axios.post('http://localhost:8080/graphql', body, {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
+
+            const response = await axios.post('/', body, {
+                withCredentials: true
             })
 
             const { notes, status } = response.data.data.getNotes
-            console.log(notes)
             if (response.data.errors) {
                 throw new Error()
             } else if (status === 200) {

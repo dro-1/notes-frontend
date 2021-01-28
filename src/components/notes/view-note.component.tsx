@@ -7,7 +7,7 @@ import { AiOutlinePlus, AiOutlineLoading3Quarters } from 'react-icons/ai'
 
 import { INote } from './note.component'
 import './view-note.scss'
-import axios from 'axios'
+import axios from './../../api/api';
 
 const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
     const [loading, setLoading] = useState(false)
@@ -31,11 +31,8 @@ const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
             }
         }
         try {
-            const token = localStorage.getItem('token')
-            const response = await axios.post('http://localhost:8080/graphql', body, {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
+            const response = await axios.post('/', body, {
+                withCredentials: true
             })
             console.log(response)
             if (response.data.errors) {

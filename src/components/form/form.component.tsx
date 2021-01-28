@@ -5,7 +5,7 @@ import { IoMdCheckmark } from 'react-icons/io'
 import { useHistory } from 'react-router-dom'
 import './form.scss'
 import axios from 'axios'
-
+import customAxios from './../../api/api'
 interface Props {
     type: 'signin' | 'signup'
 }
@@ -44,7 +44,7 @@ const Form: React.FC<Props> = ({ type }) => {
                 }
             }
             try {
-                const response = await axios.post('http://localhost:8080/graphql', body)
+                const response = await customAxios.post('/', body)
                 console.log(response)
                 if (response.data.data.createUser.status === 201) {
                     setLoading(false)
@@ -70,45 +70,29 @@ const Form: React.FC<Props> = ({ type }) => {
             }
         } else {
             const body = {
-                query: `
-                query Login($loginId: String!, $password: String! ){
-                    login(loginInput:{
-                      loginId: $loginId,
-                      password: $password
-                    }){
-                      token
-                      message
-                      status
-                      user{
-                          username
-                      }
-                    }
-                  }
-                `,
-                variables: {
-                    loginId: user,
-                    password
-                }
+                loginId: user,
+                password
             }
+
             try {
-                const response = await axios.post('http://localhost:8080/graphql', body)
-                const { status, token, user } = response.data.data.login
-                if (status === 200) {
+                const response = await axios.post('http://localhost:8080/login', body, {
+                    withCredentials: true
+                })
+                if (response.status === 200) {
                     setLoading(false)
                     setSuccess(true)
-                    localStorage.setItem('token', token)
-                    localStorage.setItem('username', user.username)
+                    localStorage.setItem('csrfToken', response.data.csrfToken)
+                    localStorage.setItem('csrfRefreshToken', response.data.csrfRefreshToken)
                     setTimeout(() => push('/home'), 2000)
                 }
             } catch (err) {
-                if (err.response.data.errors[0].status === 422) {
+                if (err.response.status === 422) {
                     setLoading(false)
                     setError('Incorrect Login Details')
                     setTimeout(() => {
                         setError('')
                     }, 10000)
-                }
-                if (err.response.data.errors.status === 500) {
+                } else {
                     setLoading(false)
                     setError('An error occurred. Please try again')
                     setTimeout(() => {
