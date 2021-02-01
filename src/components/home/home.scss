@@ -42,6 +42,7 @@ section.home {
     }
 
     main {
+<<<<<<< HEAD
         position: relative;
         height: 67vh;
         overflow-y: scroll;
@@ -59,6 +60,9 @@ section.home {
         align-items: center;
         width: 100%;
         background-color: rgb(34, 34, 34);
+=======
+        position: relative
+>>>>>>> 1336b3c22f0e4f8cf47e88b94afc1ea5a0d6df47
     }
 
     a {
@@ -66,13 +70,24 @@ section.home {
         border-radius: 50%;
         padding: 1rem;
         border: none;
+<<<<<<< HEAD
         z-index: 3;
+=======
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 1rem;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+>>>>>>> 1336b3c22f0e4f8cf47e88b94afc1ea5a0d6df47
         color: #fff;
 
         svg {
             font-size: 4rem;
         }
     }
+<<<<<<< HEAD
 
     button {
         background-color: transparent;
@@ -85,4 +100,6 @@ section.home {
             font-size: 4rem;
         }
     }
+=======
+>>>>>>> 1336b3c22f0e4f8cf47e88b94afc1ea5a0d6df47
 }
