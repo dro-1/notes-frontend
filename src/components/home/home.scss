@@ -42,7 +42,23 @@ section.home {
     }
 
     main {
-        position: relative
+        position: relative;
+        height: 67vh;
+        overflow-y: scroll;
+    }
+
+    div.buttons {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 25%;
+        align-items: center;
+        width: 100%;
+        background-color: rgb(34, 34, 34);
     }
 
     a {
@@ -50,14 +66,20 @@ section.home {
         border-radius: 50%;
         padding: 1rem;
         border: none;
-        display: block;
-        margin: 0 auto;
-        position: absolute;
-        bottom: 1rem;
-        z-index: 2;
-        left: 50%;
-        transform: translateX(-50%);
+        z-index: 3;
         color: #fff;
+
+        svg {
+            font-size: 4rem;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        padding: 1rem;
+        border: none;
+        z-index: 3;
+        color: rgb(207, 29, 38);
 
         svg {
             font-size: 4rem;
