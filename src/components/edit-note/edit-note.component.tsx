@@ -110,7 +110,6 @@ const EditNote: React.FC<IEditProps> = (props) => {
             <header>
                 <IoMdArrowRoundBack onClick={() => goBack()} />
                 <h2>{props.componentType === 'add' ? 'Add Note' : 'Edit Note'}</h2>
-                <p>Seun</p>
             </header>
             <form>
                 <input type='text' value={title}

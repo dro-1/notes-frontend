@@ -58,6 +58,7 @@ section.notes {
         padding: 0.8rem;
         text-align: right;
         border-radius: 0.8rem;
+        overflow-wrap: break-word;
 
         &.none {
             background-color: rgb(148, 147, 147);

@@ -55,7 +55,7 @@ const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
         <section className='view'>
             <header>
                 <Link to='/'><IoMdArrowRoundBack /></Link>
-                <p>Seun</p>
+
             </header>
             <h2>{title}</h2>
             <em>{updatedAt.toDateString()}</em>
