@@ -52,21 +52,22 @@ const Form: React.FC<Props> = ({ type }) => {
                     setTimeout(() => push('/login'), 2000)
                 }
             } catch (err) {
+                console.log(err)
 
-                if (err.response.data.errors.status === 422) {
-                    setLoading(false)
-                    setError('Invalid Input Entered')
-                    setTimeout(() => {
-                        setError('')
-                    }, 10000)
-                }
-                if (err.response.data.errors.status === 500) {
-                    setLoading(false)
-                    setError('An error occurred. Please try again')
-                    setTimeout(() => {
-                        setError('')
-                    }, 10000)
-                }
+                // if (err.response.data.errors.status === 422) {
+                //     setLoading(false)
+                //     setError('Invalid Input Entered')
+                //     setTimeout(() => {
+                //         setError('')
+                //     }, 10000)
+                // }
+                // if (err.response.data.errors.status === 500) {
+                //     setLoading(false)
+                //     setError('An error occurred. Please try again')
+                //     setTimeout(() => {
+                //         setError('')
+                //     }, 10000)
+                // }
             }
         } else {
             const body = {
