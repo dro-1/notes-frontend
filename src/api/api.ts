@@ -12,7 +12,6 @@ axiosInstance.interceptors.request.use(
     const csrfRefreshToken = localStorage.getItem("csrfRefreshToken") || "";
     let csrfToken = localStorage.getItem("csrfToken") || "";
     const decoded: any = decode(csrfToken);
-    console.log(decoded.exp + "000");
     if (new Date(Number(decoded.exp + "000")) < new Date()) {
       axios
         .get("http://localhost:8080/refresh-token", {
