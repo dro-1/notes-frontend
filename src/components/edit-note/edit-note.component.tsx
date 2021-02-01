@@ -51,7 +51,6 @@ const EditNote: React.FC<IEditProps> = (props) => {
                 const response = await axios.post('/', body, {
                     withCredentials: true
                 })
-                console.log(response)
                 if (response.data.data.addNote.message === "Note created successfully") {
                     setLoading(false)
                     setSuccess(true)

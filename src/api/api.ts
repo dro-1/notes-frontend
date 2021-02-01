@@ -12,7 +12,6 @@ axiosInstance.interceptors.request.use(
   (config) => {
     const csrfRefreshToken = localStorage.getItem("csrfRefreshToken") || "";
     let csrfToken = localStorage.getItem("csrfToken") || "";
-    console.log(config);
     if (csrfToken && csrfRefreshToken) {
       const decoded: any = decode(csrfToken);
       if (new Date(Number(decoded.exp + "000")) < new Date()) {

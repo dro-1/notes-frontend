@@ -34,7 +34,6 @@ const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
             const response = await axios.post('/', body, {
                 withCredentials: true
             })
-            console.log(response)
             if (response.data.errors) {
                 throw new Error()
             } else if (response.data.data.deleteNote.message === "Note Successfully Deleted") {

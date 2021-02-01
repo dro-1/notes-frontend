@@ -45,7 +45,6 @@ const Form: React.FC<Props> = ({ type }) => {
             }
             try {
                 const response = await customAxios.post('/', body)
-                console.log(response)
                 if (response.data.data.createUser.status === 201) {
                     setLoading(false)
                     setSuccess(true)
