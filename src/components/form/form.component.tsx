@@ -45,28 +45,28 @@ const Form: React.FC<Props> = ({ type }) => {
             }
             try {
                 const response = await customAxios.post('/', body)
-                console.log(response)
                 if (response.data.data.createUser.status === 201) {
                     setLoading(false)
                     setSuccess(true)
                     setTimeout(() => push('/login'), 2000)
                 }
             } catch (err) {
+                console.log(err)
 
-                if (err.response.data.errors.status === 422) {
-                    setLoading(false)
-                    setError('Invalid Input Entered')
-                    setTimeout(() => {
-                        setError('')
-                    }, 10000)
-                }
-                if (err.response.data.errors.status === 500) {
-                    setLoading(false)
-                    setError('An error occurred. Please try again')
-                    setTimeout(() => {
-                        setError('')
-                    }, 10000)
-                }
+                // if (err.response.data.errors.status === 422) {
+                //     setLoading(false)
+                //     setError('Invalid Input Entered')
+                //     setTimeout(() => {
+                //         setError('')
+                //     }, 10000)
+                // }
+                // if (err.response.data.errors.status === 500) {
+                //     setLoading(false)
+                //     setError('An error occurred. Please try again')
+                //     setTimeout(() => {
+                //         setError('')
+                //     }, 10000)
+                // }
             }
         } else {
             const body = {
@@ -83,7 +83,7 @@ const Form: React.FC<Props> = ({ type }) => {
                     setSuccess(true)
                     localStorage.setItem('csrfToken', response.data.csrfToken)
                     localStorage.setItem('csrfRefreshToken', response.data.csrfRefreshToken)
-                    setTimeout(() => push('/home'), 2000)
+                    setTimeout(() => push('/'), 2000)
                 }
             } catch (err) {
                 if (err.response?.status === 422) {
@@ -127,12 +127,12 @@ const Form: React.FC<Props> = ({ type }) => {
                             ? <AiOutlineLoading3Quarters className='loading' />
                             : <>
                                 <div className='form-group'>
-                                    <input onChange={(e) => setUser(e.target.value)} onFocus={() => setActivatePassword(false)} type='text' name='user' id='user' placeholder='Username/Email' />
-                                    {!activatePassword ? <button onClick={handleClickToPassword}><BsForwardFill /></button> : null}
+                                    <input aria-label="Username or Email" onChange={(e) => setUser(e.target.value)} onFocus={() => setActivatePassword(false)} type='text' name='user' id='user' placeholder='Username/Email' />
+                                    {!activatePassword ? <button aria-label="Save Username or Email" onClick={handleClickToPassword}><BsForwardFill /></button> : null}
                                 </div>
                                 <div className={`form-group ${activatePassword ? 'active' : ''}`}>
-                                    <input onChange={(e) => setPassword(e.target.value)} type='password' name='password' id='password' placeholder='Password' />
-                                    <button onClick={() => submitForm()} ><BsForwardFill /></button>
+                                    <input aria-label="Password" onChange={(e) => setPassword(e.target.value)} type='password' name='password' id='password' placeholder='Password' />
+                                    <button aria-label="Login" onClick={() => submitForm()} ><BsForwardFill /></button>
                                 </div>
                                 { error ? <em>{error}</em> : null}
                             </>
@@ -140,16 +140,16 @@ const Form: React.FC<Props> = ({ type }) => {
                             ? <AiOutlineLoading3Quarters className='loading' />
                             : <>
                                 <div className='form-group'>
-                                    <input onChange={(e) => setUser(e.target.value)} onFocus={() => { setActivateName(false); setActivatePassword(false) }} type='email' name='email' id='email' placeholder='Email' />
-                                    {!activateName ? <button onClick={handleClickToName}><BsForwardFill /></button> : null}
+                                    <input aria-label="Email" onChange={(e) => setUser(e.target.value)} onFocus={() => { setActivateName(false); setActivatePassword(false) }} type='email' name='email' id='email' placeholder='Email' />
+                                    {!activateName ? <button aria-label="Save Email" onClick={handleClickToName}><BsForwardFill /></button> : null}
                                 </div>
                                 <div className={`form-group ${activateName ? 'active' : ''}`}>
-                                    <input onChange={(e) => setName(e.target.value)} onFocus={() => setActivatePassword(false)} type='text' name='username' id='username' placeholder='Username' />
-                                    {!activatePassword ? <button onClick={handleClickToPassword}><BsForwardFill /></button> : null}
+                                    <input aria-label="Username" onChange={(e) => setName(e.target.value)} onFocus={() => setActivatePassword(false)} type='text' name='username' id='username' placeholder='Username' />
+                                    {!activatePassword ? <button aria-label="Save Username" onClick={handleClickToPassword}><BsForwardFill /></button> : null}
                                 </div>
                                 <div className={`form-group ${activatePassword ? 'active' : ''}`}>
-                                    <input onChange={(e) => setPassword(e.target.value)} type='password' name='password' id='password' placeholder='Password' />
-                                    <button onClick={() => submitForm()} ><BsForwardFill /> </button>
+                                    <input aria-label="Password" onChange={(e) => setPassword(e.target.value)} type='password' name='password' id='password' placeholder='Password' />
+                                    <button aria-label="Save Password" onClick={() => submitForm()} ><BsForwardFill /> </button>
                                 </div>
                                 { error ? <em>{error}</em> : null}
                             </>

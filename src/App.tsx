@@ -10,7 +10,7 @@ import SignUpPage from "./components/signup/signup.component";
 
 
 
-const PrivateRoute = ({ component, render, path }: { component?: any, render?: any, path: string }) => {
+const PrivateRoute = ({ component, render, path, exact }: { component?: any, render?: any, path: string, exact?: boolean }) => {
   let Component: any;
   if (component) {
     Component = component
@@ -18,20 +18,28 @@ const PrivateRoute = ({ component, render, path }: { component?: any, render?: a
   const isSignedIn = !!localStorage.getItem('csrfToken')
   return isSignedIn
     ? render
-      ? <Route path={path} render={render} />
-      : <Route render={props => <Component {...props} />} />
+      ? <Route exact={exact} path={path} render={render} />
+      : <Route exact={exact} path={path} render={props => <Component {...props} />} />
     : <Redirect
       to='/login' />
+}
+
+const PublicRoute = ({ component, path }: { component: any, path: string }) => {
+  const isSignedIn = !!localStorage.getItem('csrfToken')
+  return isSignedIn
+    ? <Redirect
+      to='/' />
+    : <Route path={path} component={component} />
 }
 
 
 
 function App() {
   return <Switch>
-    <Route path='/signup' component={SignUpPage} />
-    <Route path='/login' component={LoginPage} />
+    <PublicRoute path='/signup' component={SignUpPage} />
+    <PublicRoute path='/login' component={LoginPage} />
 
-    <PrivateRoute path='/home' component={HomePage} />
+    <PrivateRoute exact path='/' component={HomePage} />
     <PrivateRoute path='/view' render={(props: any) => <ViewNote {...props.location.state.note} />} />
     <PrivateRoute path='/edit' render={(props: any) => props.location.state && props.location.state.note ? <EditNote componentType='edit' {...props.location.state.note} /> : <EditNote componentType='add' />} />
   </Switch>

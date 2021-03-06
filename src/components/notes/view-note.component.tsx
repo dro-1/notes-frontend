@@ -34,13 +34,12 @@ const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
             const response = await axios.post('/', body, {
                 withCredentials: true
             })
-            console.log(response)
             if (response.data.errors) {
                 throw new Error()
             } else if (response.data.data.deleteNote.message === "Note Successfully Deleted") {
                 setLoading(false)
                 setSuccess(true)
-                setTimeout(() => push('/home'), 2000)
+                setTimeout(() => push('/'), 2000)
             }
         } catch (err) {
             setLoading(false)
@@ -54,8 +53,8 @@ const ViewNote: React.FC<INote> = ({ title, updatedAt, content, id, type }) => {
     return (
         <section className='view'>
             <header>
-                <Link to='/home'><IoMdArrowRoundBack /></Link>
-                <p>Seun</p>
+                <Link to='/'><IoMdArrowRoundBack /></Link>
+
             </header>
             <h2>{title}</h2>
             <em>{updatedAt.toDateString()}</em>

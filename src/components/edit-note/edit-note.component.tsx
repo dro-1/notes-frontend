@@ -51,11 +51,10 @@ const EditNote: React.FC<IEditProps> = (props) => {
                 const response = await axios.post('/', body, {
                     withCredentials: true
                 })
-                console.log(response)
                 if (response.data.data.addNote.message === "Note created successfully") {
                     setLoading(false)
                     setSuccess(true)
-                    setTimeout(() => push('/home'), 2000)
+                    setTimeout(() => push('/'), 2000)
                 }
             } catch (err) {
                 setLoading(false)
@@ -88,7 +87,7 @@ const EditNote: React.FC<IEditProps> = (props) => {
                 if (response.data.data.editNote.message === "Note updated successfully") {
                     setLoading(false)
                     setSuccess(true)
-                    setTimeout(() => push('/home'), 2000)
+                    setTimeout(() => push('/'), 2000)
                 }
             } catch (err) {
                 setLoading(false)
@@ -110,7 +109,6 @@ const EditNote: React.FC<IEditProps> = (props) => {
             <header>
                 <IoMdArrowRoundBack onClick={() => goBack()} />
                 <h2>{props.componentType === 'add' ? 'Add Note' : 'Edit Note'}</h2>
-                <p>Seun</p>
             </header>
             <form>
                 <input type='text' value={title}
