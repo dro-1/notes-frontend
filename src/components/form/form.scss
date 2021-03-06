@@ -71,6 +71,8 @@ form {
             font-size: 1.8rem;
             height: 30px;
 
+            width: 90%;
+
             &:focus {
                 outline: none;
             }
@@ -79,11 +81,12 @@ form {
         button {
             background-color: transparent;
             border: none;
+            width: 10%;
 
             svg {
                 font-size: 3rem;
                 position: relative;
-                top: 50%;
+                top: 55%;
             }
         }
     }

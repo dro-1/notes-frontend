@@ -11,7 +11,7 @@ main.login {
     margin-bottom: 4rem;
   }
 
-  &>img {
+  div.main img {
     display: block;
     width: 70%;
     margin: 0 auto 4rem;
@@ -19,7 +19,8 @@ main.login {
 
   &>em {
     display: block;
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 2rem 0;
     text-align: center;
     font-style: normal;
     color: #fff;
@@ -27,6 +28,27 @@ main.login {
 
     a {
       color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  div.main {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &>img#signIn {
+      width: 40%;
+    }
+
+    &>form {
+      position: relative;
+      top: -2rem;
+      width: 60%;
     }
   }
 }

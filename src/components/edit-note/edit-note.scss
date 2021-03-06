@@ -79,6 +79,9 @@ section.edit {
 
     form {
         margin-top: 2rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
 
         input,
         textarea {
@@ -111,6 +114,7 @@ section.edit {
 
     }
 
+
     &>button {
         background-color: rgb(49, 177, 45);
         border-radius: 50%;
@@ -136,6 +140,35 @@ section.edit {
         svg {
             font-size: 4rem;
             color: #fff;
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    section.edit {
+        div.buttons {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+
+            &>button {
+                padding: .8rem;
+                font-size: 1.8rem;
+
+                &.loading {
+                    font-size: 1.8rem;
+                    height: 70px;
+                    width: 70px;
+                    color: white;
+                    padding: 0;
+                }
+
+
+                svg {
+                    font-size: 4rem;
+                    color: #fff;
+                }
+            }
         }
     }
 }

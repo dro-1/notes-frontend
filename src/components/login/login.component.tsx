@@ -8,8 +8,10 @@ const LoginPage: React.FC = () => {
     return (
         <main className='login'>
             <h1>Sign In</h1>
-            <img src={SignInSVG} alt='Sign In' />
-            <Form type='signin' />
+            <div className='main'>
+                <img id='signIn' src={SignInSVG} alt='Sign In' />
+                <Form type='signin' />
+            </div>
             <em>Don't have an account? <Link to='/signup'>Sign Up</Link></em>
         </main>
     )

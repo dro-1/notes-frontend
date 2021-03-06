@@ -27,6 +27,11 @@ a {
   font-family: Montserrat, sans-serif;
 }
 
+button,
+a {
+  cursor: pointer;
+}
+
 h1,
 h2,
 h3,

@@ -23,13 +23,15 @@ section.home {
 
     input {
         width: 100%;
-        display: inline-block;
+        display: block;
         font-size: 1.6rem;
         padding: 0.5rem 1rem;
         border: none;
         border-radius: 0.5rem;
         transition: all .5s ease-in-out;
-
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
         transform: translateY(-40px);
 
         &.active {
@@ -44,7 +46,7 @@ section.home {
     main {
         position: relative;
         height: 67vh;
-        overflow-y: scroll;
+        overflow-y: overlay;
     }
 
     div.buttons {

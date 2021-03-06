@@ -11,20 +11,43 @@ main.signup {
     margin-bottom: 8rem;
   }
 
-  & > img {
+  div.main img {
     display: block;
     width: 70%;
     margin: 0 auto 4rem;
   }
-  em {
+
+  &>em {
     display: block;
     margin: 2rem auto;
     text-align: center;
     font-style: normal;
     color: #fff;
     font-size: 1.6rem;
+
     a {
       color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  div.main {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &>img#signUp {
+      width: 40%;
+    }
+
+    &>form {
+      position: relative;
+      top: -2rem;
+      width: 60%;
     }
   }
 }

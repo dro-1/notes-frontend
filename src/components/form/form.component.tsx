@@ -75,7 +75,7 @@ const Form: React.FC<Props> = ({ type }) => {
             }
 
             try {
-                const response = await axios.post('http://localhost:8080/login', body, {
+                const response = await axios.post('https://dro-notes-api.herokuapp.com/login', body, {
                     withCredentials: true
                 })
                 if (response.status === 200) {
@@ -86,7 +86,7 @@ const Form: React.FC<Props> = ({ type }) => {
                     setTimeout(() => push('/home'), 2000)
                 }
             } catch (err) {
-                if (err.response.status === 422) {
+                if (err.response?.status === 422) {
                     setLoading(false)
                     setError('Incorrect Login Details')
                     setTimeout(() => {
